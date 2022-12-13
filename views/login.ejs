@@ -1,0 +1,33 @@
+<h1>Login</h1>
+<% if (messages.error) { %>
+    <%= messages.error %>
+<% } %>
+<% if (messages.success) { %>
+    <%= messages.success %>
+<% } %>
+
+const config = {
+    headers : { Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lcjFAYnVzaW5lc3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9qYXZhLWFwaS5jb2RlYm94eHRlc3QueHl6L2F1dGhlbnRpY2F0ZSJ9.QbJsJ-MZXWieFf_fcAkNWI3S9Skqd-yFVF3S2h-uhfo'}
+    }
+    axios.post('https://java-api.codeboxxtest.xyz/authenticate?email=customer1%40business.com&password=password123', config)
+    .then(res => {
+        console.log(res)
+      }) 
+      .catch(err => {
+        console.log(err)
+      })
+}
+return (
+    <form action="/login" method="POST">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required placeholder="Enter your email!">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password" required placeholder="************">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <a href="/register">Don't have an account? Register!</a>
+)
